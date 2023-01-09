@@ -12,6 +12,7 @@
   <script src="vendor/javascript/codejar.js"></script>
   <script src="init_dom.js"></script>
   <script src="scripts.js"></script>
+  <script src="vendor/javascript/chlorine.js"></script>
   <link rel="stylesheet" href="vendor/css/highlight.min.css">
 </head>
 
@@ -26,6 +27,50 @@ alert(document.getElementById('head').innerHTML);
   <!-- <button onclick="parseButton()">Parse</button> -->
   <button onclick="runButton()" id="runButton">Run</button>
   </p>
+
+
+  <form name="calcForm" id="calcForm" onsubmit="return false;" data-dashlane-rid="1045b40853a13e36"
+    data-form-type="other">
+    <div class="examples">
+      <div id="concentratediv" class="slider-example">
+        <p>1. Concentration of bleach product (% sodium hypochlorite)</p>
+        <div class="well">
+          <input id="NaClO" name="NaClO" placeholder="Bleach concentrate between 1 &amp; 65%" hint="" type="number"
+            style="width: 300px" min="1" max="65" step="0.1" required="required" data-dashlane-rid="a91b1617acb75279"
+            data-form-type="other"> % sodium hypochlorite (NaClO)
+        </div>
+      </div>
+
+
+      <div id="ppmdiv" class="slider-example">
+        <p>2. Desired concentration of chlorine solution (ppm)</p>
+        <div class="well">
+          <input id="descon" name="descon" placeholder="Desired concentrate between 50 &amp; 1000ppm" type="number"
+            style="width: 300px" min="50" max="1000" step="1" required="required" data-dashlane-rid="f854a7959e7ef252"
+            data-form-type="other"> ppm
+        </div>
+      </div>
+      <div class="examples">
+        <div id="volumediv" class="slider-example">
+          <p>3. Desired volume of chlorine solution (Litres)</p>
+          <div class="well">
+            <input id="desvol" name="desvol" placeholder="Desired volumn between 1 &amp; 50 litres" type="number"
+              style="width: 300px" min="1" max="50" step="0.5" required="required" data-dashlane-rid="ce17a17bcb286ddb"
+              data-form-type="other"> Litres
+          </div>
+        </div>
+      </div>
+      <div class="examples">
+        <div id="calculatediv" class="slider-example">
+          <div class="well">
+            <input type="submit" id="calculate" name="calculate" value="Calculate" data-dashlane-rid="4518dc7c39c097ee"
+              data-form-type="action">
+            <div id="result" style="font-weight:bold"></div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /examples -->
+  </form>
 </body>
 
 <script>

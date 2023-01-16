@@ -91,12 +91,36 @@ function initDom(interpreter, globalObject) {
   interpreter.setProperty(pseudoElementProto, 'innerHTML', Interpreter.VALUE_IN_DESCRIPTOR,
     { get: innerHTMLGetter, set: innerHTMLSetter });
 
+    // Define 'Element.value' property.  It uses a getter and setter.
+  var getterWrapper = function () {
+    return this.nativeNode.value;
+  };
+  var valueGetter = interpreter.createNativeFunction(getterWrapper, false);
+  var setterWrapper = function (text) {
+    this.nativeNode.value = text;
+  };
+  var valueSetter = interpreter.createNativeFunction(setterWrapper, false);
+  interpreter.setProperty(pseudoElementProto, 'value', Interpreter.VALUE_IN_DESCRIPTOR,
+    { get: valueGetter, set: valueSetter });
+
   // Define 'Element.appendChild' function.
   var wrapper = function appendChild(pseudoChild) {
     this.nativeNode.appendChild(pseudoChild.nativeNode);
     return pseudoChild;
   };
   interpreter.setProperty(pseudoElementProto, 'appendChild',
+    interpreter.createNativeFunction(wrapper));
+
+  // Define 'Element.addEventListener' function.
+  var wrapper = function addEventListener(eventType, func) {
+    debugger
+    return this.nativeNode.addEventListener(eventType, () => {
+      debugger;
+      func()
+    });
+    // return node;
+  };
+  interpreter.setProperty(pseudoElementProto, 'addEventListener',
     interpreter.createNativeFunction(wrapper));
 
   // Create 'document' global object.
@@ -131,4 +155,3 @@ function initDom(interpreter, globalObject) {
   interpreter.setProperty(globalObject, 'alert',
     interpreter.createNativeFunction(wrapper));
 }
-

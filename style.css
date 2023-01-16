@@ -26,6 +26,13 @@ em {
   border: dotted 1px #888;
 }
 
+.result {
+  margin: 2rem 0;
+  font-weight: bold;
+  padding: 1em;
+  background: aquamarine;
+}
+
 /*!
   Theme: Default
   Description: Original highlight.js style

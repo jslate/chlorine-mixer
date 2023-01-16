@@ -20,72 +20,79 @@
   <h1 id="head">Chlorine Calculator</h1>
 
   <form name="calcForm" id="calcForm" onsubmit="return false;">
-      <div id="concentratediv" class="slider-example">
-        <p>1. Concentration of bleach product (% sodium hypochlorite)</p>
-        <div class="well">
-          <input id="bleachConcentration" name="bleachConcentration" placeholder="Bleach concentrate between 1 &amp; 65%" hint="" type="number"
-            style="width: 300px" min="1" max="65" step="0.1" required="required"> % sodium hypochlorite (NaClO)
-        </div>
-      </div>
+    <p>
+      Concentration of bleach product (sodium hypochlorite)<br />
+      <input
+        id="bleachConcentration"
+        name="bleachConcentration"
+        placeholder="Bleach concentrate between 1 &amp; 65%"
+        hint=""
+        type="number"
+        style="width: 300px"
+        min="1"
+        max="65"
+        step="0.1"
+        required="required"
+      /> %
+    </p>
 
+    <p>
+      Desired concentration of chlorine solution<br/>
+      <input
+        id="desiredConcentration"
+        name="desiredConcentration"
+        placeholder="Desired concentrate between 50 &amp; 1000ppm"
+        type="number"
+        style="width: 300px"
+        min="50"
+        max="1000"
+        step="1"
+        required="required"
+      /> ppm
+    </p>
 
-      <div id="ppmdiv" class="slider-example">
-        <p>2. Desired concentration of chlorine solution (ppm)</p>
-        <div class="well">
-          <input id="desiredConcentration" name="desiredConcentration" placeholder="Desired concentrate between 50 &amp; 1000ppm" type="number"
-            style="width: 300px" min="50" max="1000" step="1" required="required"> ppm
-        </div>
-      </div>
-      <div class="examples">
-        <div id="volumediv" class="slider-example">
-          <p>3. Desired volume of chlorine solution (Litres)</p>
-          <div class="well">
-            <input id="desiredVolume" name="desiredVolume" placeholder="Desired volume between 1 &amp; 50 litres" type="number"
-              style="width: 300px" min="1" max="50" step="0.5" required="required"> Litres
-          </div>
-        </div>
-      </div>
-      <div class="examples">
-        <div id="calculatediv" class="slider-example">
-          <div class="well">
-            <input type="submit" id="calculate" name="calculate" value="Calculate">
-            <div id="result" style="font-weight:bold">x</div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- /examples -->
+    <p>
+      Desired volume of chlorine solution<br/>
+      <input
+        id="desiredVolume"
+        name="desiredVolume"
+        placeholder="Desired volume between 1 &amp; 50 litres"
+        type="number"
+        style="width: 300px"
+        min="1"
+        max="50"
+        step="0.5"
+        required="required"
+      /> Liters
+    </p>
+
+    <div id="calculateContainer" class="slider-example">
+      <button id="calculate" class="calculate">Calculate</button>
+      <div id="result" class="result" style="visibility: hidden;"></div>
+    </div>
   </form>
 
+  <pre>
+    <code id="code" class="language-javascript">
+const bleachConcentration = document.getElementById('bleachConcentration').value;
+const desiredConcentration = document.getElementById('desiredConcentration').value;
+const desiredVolume = document.getElementById('desiredVolume').value;
 
+const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
 
-    <pre>
-        <code id="code" class="language-javascript">
-const calc = document.getElementById('calculate');
+const availableBleach = (bleachConcentration / 1.05) * 10;
+const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
+const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
 
-calc.addEventListener('click', () => {
-  alert(calc.value);
-  const bleachConcentration = document.getElementById('bleachConcentration').value;
-  const desiredConcentration = document.getElementById('desiredConcentration').value;
-  const desiredVolume = document.getElementById('desiredVolume').value;
-
-  const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
-
-  const availableBleach = (bleachConcentration / 1.05) * 10;
-  const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
-  const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
-
-  if (valid == true) {
-    var strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater} litres of water.`;
-    document.getElementById('result').innerHTML = strHTML;
-  } else {
-    document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
-  }
-});
-        </code>
-      </pre>
-    <!-- <button onclick="parseButton()">Parse</button> -->
-    <button onclick="runButton()" id="runButton">Run</button>
-    </p>
+if (valid == true) {
+  var strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater} litres of water.`;
+  document.getElementById('result').innerHTML = strHTML;
+} else {
+  document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
+}
+    </code>
+  </pre>
+  <button id="updateCode">Update Code</button>
 </body>
 
 </html>

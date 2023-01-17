@@ -68,9 +68,11 @@
 
     <div id="calculateContainer" class="slider-example">
       <button id="calculate" class="calculate">Calculate</button>
-      <div id="result" class="result" style="visibility: hidden;"></div>
+      <div id="result" class="result" style="display: none;"></div>
     </div>
   </form>
+
+  <h2>Code</h2>
 
   <pre>
     <code id="code" class="language-javascript">
@@ -93,6 +95,21 @@ if (valid == true) {
     </code>
   </pre>
   <button id="updateCode">Update Code</button>
+
+  <h2>Exercise #1: Show the number of people the water can be used for</h2>
+
+  <ol>
+    <li>
+      Add line below <code>const requiredWater...</code> like this:<br/>
+      <code>const requiredWaterPerPersonPerDay = 3;</code>
+    </li>
+    <li>
+      Change the line <code>var strHTML...</code> to look like this:<br/>
+      <code>var strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater}
+      litres of water. That's enough for ${requiredWater / requiredWaterPerPersonPerDay} people`;</code>
+    </li>
+  </ol>
+
 </body>
 
 </html>

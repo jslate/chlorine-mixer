@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', e => {
     button.class = 'calculate';
 
     document.getElementById('calculateContainer').prepend(button);
-    const scriptText = `document.getElementById('calculate').addEventListener('click', () => { ${getCode()}; document.getElementById('result').style.visibility = 'visible'; });`;
+    const scriptText = `document.getElementById('calculate').addEventListener('click', () => { ${getCode()}; document.getElementById('result').style.display = 'block'; });`;
     const oldScript = document.getElementById('scriptContainer');
 
     if (oldScript) {

@@ -35,4 +35,13 @@ document.addEventListener('DOMContentLoaded', e => {
     updateHandler();
     document.getElementById('calculate').addEventListener('click', window.runCode)
   });
+
+  document.querySelectorAll('.solve').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const solutionCodeElement = document.getElementById(link.dataset.exerciseId);
+      jar.updateCode(solutionCodeElement.innerText);
+      updateHandler();
+    })
+  })
 });

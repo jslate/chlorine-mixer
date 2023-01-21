@@ -194,14 +194,11 @@ const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
 const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
 
 if (valid == true) {
-  var strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater} litres of water.`;
+  let strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater} litres of water.`;
   document.getElementById('result').innerHTML = strHTML;
 } else {
   document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
 }
-const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];
-imgs.forEach((e) => e.style.display = 'inline-block');
-imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
     </code>
   </pre>
   <button id="updateCode">Update Code</button>
@@ -209,16 +206,132 @@ imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
   <h2>Exercise #1: Show the number of people the water can be used for</h2>
 
   <ol>
-    <li>
-      Add line below <code>const requiredWater...</code> like this:<br/>
+    <li>Look for the line that starts with <code>const requiredWater</code>, about halfway down.</li>
+    <li>Below that line, add another line that contains this:<br/>
       <code>const requiredWaterPerPersonPerDay = 3;</code>
     </li>
-    <li>
-      Change the line <code>var strHTML...</code> to look like this:<br/>
-      <code>var strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater}
-      litres of water. That's enough for ${requiredWater / requiredWaterPerPersonPerDay} people`;</code>
+    <li>Look for the line that starts with <code>let strHTML</code>, about 5 lines from the bottom.</li>
+    <li>Below that line, add another line that contains this:<br/>
+      <code>strHTML += ` That's enough for ${requiredWater / requiredWaterPerPersonPerDay} people`;</code>
     </li>
+    <li>Click "Update Code" and then try using the calculator again. Does it work? What has changed?</li>
   </ol>
+
+  <p>If you have trouble, you can <a href="#" data-exercise-id="exercise-1" class="solve">have the exercise solved for you</a>. But then how will you learn?</p>
+
+  <h2>Exercise #2: Make the cholera germs disappear!</h2>
+
+  <p>Add the following lines to the end of the code:</p>
+
+  <code>
+    const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];<br />
+    imgs.forEach((e) => e.style.display = 'inline-block');<br />
+    imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
+  </code>
+
+  <p>If you have trouble, you can <a href="#" data-exercise-id="exercise-2" class="solve">have the exercise solved for
+    you</a>. But then how will you learn?</p>
+
+  <h2>Exercise #3: Round the number of people affected (Advanced)</h2>
+
+  <p>If you set all the fields in the calculator and click "Calculate", you'll
+    should see that it says, "That's enough for 0.3333333333333333 people."</p>
+
+  <p>We definitely don't need to see that many digits! Can you fix it to show just one decimal place?</p>
+
+  <ol>
+    <li>Add another variable below <code>requiredWaterPerPersonPerDay</code>, and name it <code>numberOfPeople</code>.</li>
+    <li>So you should have something like <code>const numberOfPeople =</code></li>
+    <li>After the equals sign, add the calculation from exercise 1 step 4.</li>
+    <li>Change the line that was using the calculation to use the new variable:<br />
+      <code>strHTML += ` That's enough for ${numberOfPeople} people`;</code></li>
+    <li>Click "Update Code" and try the calculator again. It should be the same as before.</li>
+    <li>Now look at the code on the line that starts with <code>const requiredWater</code>. That line is rounding that value, we want to do the same.
+      Wrap the calculation in parenthesis, and add <code>.toFixed(1)</code> to the end (before the semicolon).</li>
+  </ol>
+
+  <p>If you have trouble, you can <a href="#" data-exercise-id="exercise-3" class="solve">have the exercise solved for
+        you</a>. But then how will you learn?</p>
+
+
+  <div class="exercise-solutions">
+    <code id="exercise-1">
+const bleachConcentration = document.getElementById('bleachConcentration').value;
+const desiredConcentration = document.getElementById('desiredConcentration').value;
+const desiredVolume = document.getElementById('desiredVolume').value;
+
+const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
+
+const availableBleach = (bleachConcentration / 1.05) * 10;
+const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
+const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
+const requiredWaterPerPersonPerDay = 3;
+
+if (valid == true) {
+  let strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater}
+  litres of water.`;
+  strHTML += ` That's enough for ${requiredWater / requiredWaterPerPersonPerDay} people`;
+document.getElementById('result').innerHTML = strHTML;
+} else {
+  document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
+}
+    </code>
+
+    <code id="exercise-2">
+const bleachConcentration = document.getElementById('bleachConcentration').value;
+const desiredConcentration = document.getElementById('desiredConcentration').value;
+const desiredVolume = document.getElementById('desiredVolume').value;
+
+const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
+
+const availableBleach = (bleachConcentration / 1.05) * 10;
+const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
+const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
+const requiredWaterPerPersonPerDay = 3;
+
+if (valid == true) {
+let strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater}
+litres of water.`;
+strHTML += ` That's enough for ${requiredWater / requiredWaterPerPersonPerDay} people`;
+document.getElementById('result').innerHTML = strHTML;
+} else {
+document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
+}
+
+const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];
+imgs.forEach((e) => e.style.display = 'inline-block');
+imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
+    </code>
+
+    <code id="exercise-3">
+
+const bleachConcentration = document.getElementById('bleachConcentration').value;
+const desiredConcentration = document.getElementById('desiredConcentration').value;
+const desiredVolume = document.getElementById('desiredVolume').value;
+
+const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
+
+const availableBleach = (bleachConcentration / 1.05) * 10;
+const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
+const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
+const requiredWaterPerPersonPerDay = 3;
+const numberOfPeople = (requiredWater / requiredWaterPerPersonPerDay).toFixed(1);
+
+if (valid == true) {
+  let strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater}
+  litres of water.`;
+  strHTML += ` That's enough for ${numberOfPeople} people`;
+  document.getElementById('result').innerHTML = strHTML;
+} else {
+  document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
+}
+
+const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];
+imgs.forEach((e) => e.style.display = 'inline-block');
+imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
+    </code>
+
+  </div>
 
 </body>
 

@@ -1,6 +1,7 @@
 body {
   background-color: #fff;
   font-family: sans-serif;
+  margin-bottom: 3rem;
 }
 
 a:hover {
@@ -56,6 +57,10 @@ em {
 }
 code {
 
+}
+
+.exercise-solutions {
+  display: none;
 }
 /*!
   Theme: Default

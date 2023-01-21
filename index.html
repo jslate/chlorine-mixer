@@ -19,63 +19,170 @@
 <body>
   <h1 id="head">Chlorine Calculator</h1>
 
-  <form name="calcForm" id="calcForm" onsubmit="return false;">
-    <p>
-      Concentration of bleach product (sodium hypochlorite)<br />
-      <input
-        id="bleachConcentration"
-        name="bleachConcentration"
-        placeholder="Bleach concentrate between 1 &amp; 65%"
-        hint=""
-        type="number"
-        style="width: 300px"
-        min="1"
-        max="65"
-        step="0.1"
-        required="required"
-      /> %
-    </p>
+  <div class="form-container">
+    <form name="calcForm" id="calcForm" onsubmit="return false;">
+      <p>
+        Concentration of bleach product (sodium hypochlorite)<br />
+        <input
+          id="bleachConcentration"
+          name="bleachConcentration"
+          placeholder="Bleach concentrate between 1 &amp; 65%"
+          hint=""
+          type="number"
+          style="width: 300px"
+          min="1"
+          max="65"
+          step="0.1"
+          required="required"
+        /> %
+      </p>
 
-    <p>
-      Desired concentration of chlorine solution<br/>
-      <input
-        id="desiredConcentration"
-        name="desiredConcentration"
-        placeholder="Desired concentrate between 50 &amp; 1000ppm"
-        type="number"
-        style="width: 300px"
-        min="50"
-        max="1000"
-        step="1"
-        required="required"
-      /> ppm
-    </p>
+      <p>
+        Desired concentration of chlorine solution<br/>
+        <input
+          id="desiredConcentration"
+          name="desiredConcentration"
+          placeholder="Desired concentrate between 50 &amp; 1000ppm"
+          type="number"
+          style="width: 300px"
+          min="50"
+          max="1000"
+          step="1"
+          required="required"
+        /> ppm
+      </p>
 
-    <p>
-      Desired volume of chlorine solution<br/>
-      <input
-        id="desiredVolume"
-        name="desiredVolume"
-        placeholder="Desired volume between 1 &amp; 50 litres"
-        type="number"
-        style="width: 300px"
-        min="1"
-        max="50"
-        step="0.5"
-        required="required"
-      /> Liters
-    </p>
+      <p>
+        Desired volume of chlorine solution<br/>
+        <input
+          id="desiredVolume"
+          name="desiredVolume"
+          placeholder="Desired volume between 1 &amp; 50 litres"
+          type="number"
+          style="width: 300px"
+          min="1"
+          max="50"
+          step="0.5"
+          required="required"
+        /> Liters
+      </p>
 
-    <div id="calculateContainer" class="slider-example">
-      <button id="calculate" class="calculate">Calculate</button>
-      <div id="result" class="result" style="display: none;"></div>
+      <div id="calculateContainer">
+        <button id="calculate" class="calculate">Calculate</button>
+        <div id="result" class="result" style="display: none;"></div>
+      </div>
+    </form>
+
+    <div class="cholera-container">
+      <img src='images/cholera_2.png' style='position: absolute; top: 199px; left: 191px; transform: rotate(0.86turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 208px; left: 18px; transform: rotate(0.1turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 117px; left: 88px; transform: rotate(0.06turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 181px; left: 77px; transform: rotate(0.0turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 194px; left: 93px; transform: rotate(0.66turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 93px; left: 236px; transform: rotate(0.65turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 171px; left: 86px; transform: rotate(0.66turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 16px; left: 188px; transform: rotate(0.22turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 60px; left: 218px; transform: rotate(0.41turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 194px; left: 66px; transform: rotate(0.54turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 147px; left: 136px; transform: rotate(0.54turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 67px; left: 62px; transform: rotate(0.65turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 154px; left: 79px; transform: rotate(0.7turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 235px; left: 158px; transform: rotate(0.97turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 204px; left: 19px; transform: rotate(0.61turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 75px; left: 62px; transform: rotate(0.33turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 228px; left: 168px; transform: rotate(0.9turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 16px; left: 104px; transform: rotate(0.95turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 253px; left: 140px; transform: rotate(0.54turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 121px; left: 253px; transform: rotate(0.77turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 211px; left: 99px; transform: rotate(0.43turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 35px; left: 14px; transform: rotate(0.72turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 110px; left: 222px; transform: rotate(0.52turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 189px; left: 24px; transform: rotate(0.9turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 155px; left: 199px; transform: rotate(0.01turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 85px; left: 167px; transform: rotate(0.46turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 170px; left: 160px; transform: rotate(0.57turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 153px; left: 103px; transform: rotate(0.12turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 115px; left: 249px; transform: rotate(0.64turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 16px; left: 159px; transform: rotate(0.51turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 126px; left: 122px; transform: rotate(0.28turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 50px; left: 194px; transform: rotate(0.2turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 100px; left: 196px; transform: rotate(0.84turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 24px; left: 31px; transform: rotate(0.33turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 205px; left: 131px; transform: rotate(0.3turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 229px; left: 35px; transform: rotate(0.28turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 107px; left: 113px; transform: rotate(0.64turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 70px; left: 72px; transform: rotate(0.62turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 46px; left: 229px; transform: rotate(0.2turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 208px; left: 214px; transform: rotate(0.99turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 204px; left: 235px; transform: rotate(0.41turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 124px; left: 149px; transform: rotate(0.03turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 21px; left: 144px; transform: rotate(0.21turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 40px; left: 116px; transform: rotate(0.95turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 54px; left: 255px; transform: rotate(0.29turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 148px; left: 26px; transform: rotate(0.93turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 56px; left: 83px; transform: rotate(0.28turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 117px; left: 68px; transform: rotate(0.08turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 131px; left: 94px; transform: rotate(0.02turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 179px; left: 181px; transform: rotate(0.26turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 75px; left: 45px; transform: rotate(0.75turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 87px; left: 144px; transform: rotate(1.0turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 141px; left: 60px; transform: rotate(0.47turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 151px; left: 90px; transform: rotate(0.06turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 183px; left: 179px; transform: rotate(0.34turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 50px; left: 243px; transform: rotate(0.56turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 24px; left: 100px; transform: rotate(0.57turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 216px; left: 245px; transform: rotate(0.19turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 230px; left: 137px; transform: rotate(0.56turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 110px; left: 111px; transform: rotate(0.77turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 252px; left: 78px; transform: rotate(0.61turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 126px; left: 31px; transform: rotate(0.41turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 141px; left: 149px; transform: rotate(0.79turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 191px; left: 107px; transform: rotate(0.39turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 44px; left: 235px; transform: rotate(0.16turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 130px; left: 119px; transform: rotate(0.12turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 58px; left: 167px; transform: rotate(0.1turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 138px; left: 244px; transform: rotate(0.77turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 255px; left: 106px; transform: rotate(0.66turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 21px; left: 67px; transform: rotate(0.57turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 196px; left: 121px; transform: rotate(0.95turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 216px; left: 191px; transform: rotate(0.28turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 83px; left: 100px; transform: rotate(0.11turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 88px; left: 39px; transform: rotate(0.03turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 139px; left: 102px; transform: rotate(0.42turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 143px; left: 77px; transform: rotate(0.8turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 114px; left: 148px; transform: rotate(0.79turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 199px; left: 203px; transform: rotate(0.24turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 123px; left: 97px; transform: rotate(0.27turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 95px; left: 45px; transform: rotate(0.88turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 194px; left: 26px; transform: rotate(0.73turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 176px; left: 90px; transform: rotate(0.82turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 93px; left: 119px; transform: rotate(0.2turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 247px; left: 252px; transform: rotate(0.07turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 133px; left: 130px; transform: rotate(0.12turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 221px; left: 150px; transform: rotate(0.84turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 159px; left: 14px; transform: rotate(0.83turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 57px; left: 93px; transform: rotate(0.43turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 198px; left: 131px; transform: rotate(0.1turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 12px; left: 83px; transform: rotate(0.85turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 92px; left: 52px; transform: rotate(1.0turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 165px; left: 29px; transform: rotate(0.28turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 198px; left: 181px; transform: rotate(0.03turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 220px; left: 41px; transform: rotate(0.64turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 155px; left: 65px; transform: rotate(0.29turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 53px; left: 205px; transform: rotate(0.58turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 17px; left: 241px; transform: rotate(0.67turn);' />
+      <img src='images/cholera_3.png' style='position: absolute; top: 51px; left: 68px; transform: rotate(0.88turn);' />
+      <img src='images/cholera_1.png' style='position: absolute; top: 29px; left: 106px; transform: rotate(0.27turn);' />
+      <img src='images/cholera_2.png' style='position: absolute; top: 256px; left: 221px; transform: rotate(0.49turn);' />
     </div>
-  </form>
+  </div>
+
+
 
   <h2>Code</h2>
 
   <pre>
-    <code id="code" class="language-javascript">
+    <code id="code" class="language-javascript" class="code">
 const bleachConcentration = document.getElementById('bleachConcentration').value;
 const desiredConcentration = document.getElementById('desiredConcentration').value;
 const desiredVolume = document.getElementById('desiredVolume').value;
@@ -92,6 +199,9 @@ if (valid == true) {
 } else {
   document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
 }
+const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];
+imgs.forEach((e) => e.style.display = 'inline-block');
+imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
     </code>
   </pre>
   <button id="updateCode">Update Code</button>

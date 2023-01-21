@@ -27,12 +27,36 @@ em {
 }
 
 .result {
-  margin: 2rem 0;
+  margin: 2rem 2rem 2rem 0rem;
   font-weight: bold;
   padding: 1em;
   background: aquamarine;
+  max-width: 300px;
 }
 
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+}
+
+.cholera-container {
+  /* padding: 10px; */
+  margin: 10px 0;
+  border: 1px solid black;
+  display: inline-block;
+  height: 320px;
+  width: 320px;
+  position: relative;
+}
+
+.cholera-container img {
+  max-width: 50px;
+  max-height: 50px;
+}
+code {
+
+}
 /*!
   Theme: Default
   Description: Original highlight.js style

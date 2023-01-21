@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', e => {
     };
     return Babel.transform(code, options).code;
   }
+  // return; // TO_START_EDITING: remove the first two slashes at the beginning of this line
+
 
   function updateHandler() {
     document.getElementById('calculate').remove();

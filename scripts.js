@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', e => {
   const codeElement = document.getElementById('code');
   const jar = CodeJar(codeElement, hljs.highlightElement);
+
+  document.getElementById('exercises').querySelectorAll('code').forEach((element) => { CodeJar(element, hljs.highlightElement)  });
+  CodeJar(document.querySelector('#explanation code'), hljs.highlightElement);
   // return; // TO_START_EDITING: remove the first two slashes at the beginning of this line
 
   function updateHandler() {

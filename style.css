@@ -22,11 +22,6 @@ textarea {
   max-width: 111ex;
 }
 
-em {
-  padding: 0 1ex;
-  border: dotted 1px #888;
-}
-
 .result {
   margin: 2rem 2rem 2rem 0rem;
   font-weight: bold;
@@ -57,4 +52,8 @@ em {
 
 .exercise-solutions {
   display: none;
+}
+
+hr {
+  margin: 3rem 0 1rem;
 }

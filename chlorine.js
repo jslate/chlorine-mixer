@@ -7,30 +7,64 @@
 // over.
 document.addEventListener('DOMContentLoaded', e => {
   document.getElementById('calculate').addEventListener('click', () => {
-    const bleachConcentration = document.getElementById('bleachConcentration').value;
-    const desiredConcentration = document.getElementById('desiredConcentration').value;
-    const desiredVolume = document.getElementById('desiredVolume').value;
+    // Update the round number
+    const roundElement = document.getElementById('round');
+    roundElement.innerHTML = parseInt(roundElement.innerHTML) + 1;
 
-    const valid = ![bleachConcentration, desiredConcentration, desiredVolume].includes('');
+    // Get values from the form and assign them to constants
+    const amountOfWater = document.getElementById('amountOfWater').value;
+    const amountOfChlorine = document.getElementById('amountOfChlorine').value;
 
-    const availableBleach = (bleachConcentration / 1.05) * 10;
-    const requiredBleach = (desiredConcentration * desiredVolume) / availableBleach;
-    const requiredWater = ((desiredVolume) - (requiredBleach / 1000)).toFixed(1);
-    const requiredWaterPerPersonPerDay = 3;
-    const numberOfPeople = (requiredWater / requiredWaterPerPersonPerDay).toFixed(1);
+    // Get the ratio of chlorine to water
+    const ratio = amountOfChlorine / amountOfWater;
 
-    if (valid == true) {
-      let strHTML = `To make your chlorine solution add ${requiredBleach.toFixed(1)} milliliters of bleach to ${requiredWater} litres of water.`;
-      strHTML += ` That's enough for ${numberOfPeople} people`;
-      document.getElementById('result').innerHTML = strHTML;
+    // Get the face element to update
+    const faceElement = document.querySelector('#face img');
+    const resultString = document.getElementById('resultString');
+
+    // Choose the correct face type & update the result string
+    let faceType = 'happy'
+    if (ratio < 0.1) {
+      faceType = 'sick';
+      resultString.innerHTML = 'There is still cholera in the water!';
+    } else if (ratio > 0.2) {
+      faceType = 'yuck';
+      resultString.innerHTML = 'There is too much chlorine in the water!';
     } else {
-      document.getElementById('result').innerHTML = "Please enter numbers in all the fields";
+      resultString.innerHTML = 'There is just the right amount of chlorine in the water!';
     }
 
-    document.getElementById('result').style.display = 'block';
+    // Update the face element
+    faceElement.src = `images/${faceType}.svg`;
+    faceElement.alt = `${faceType} face`;
 
+    // Get the cholera count to display
+    let choleraCount = Math.floor(ratio * 1000);
+
+    // If it's more than 100, show 100
+    choleraCount = choleraCount >= 100 ? 100 : choleraCount;
+
+    // Get all the cholera images
     const imgs = [...document.querySelector('.cholera-container').querySelectorAll('img')];
+
+    // Start by showing all of them
     imgs.forEach((e) => e.style.display = 'inline-block');
-    imgs.slice(100 - desiredConcentration).forEach((e) => e.style.display = 'none');
+
+    // Then hide 100 - choleraCount of them
+    imgs.slice(100 - choleraCount).forEach((e) => e.style.display = 'none');
   });
 });
+
+/*
+  Hey there! I'm so glad you decided to dig into the source code!
+
+  This application could be just the beginning of your coding adventure. When I visited Malawi in 2022,
+  I was very impressed with the positive attitude, dedication, and determination of the young people I met.
+  I'm 100% sure that some of you could be great coders, if you put in the time. This application is a
+  trivial example of all the amazing things you can do if you learn to work with code.
+
+  If you make something you are proud of, I'd love to see it. People at K2 TASO know how to reach me.
+
+  Best of luck,
+  Jonathan
+*/

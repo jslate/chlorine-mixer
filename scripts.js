@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', e => {
     document.getElementById('calculate').remove();
     let button = document.createElement('button');
     button.id = 'calculate';
-    button.innerHTML = 'Calculate';
+    button.innerHTML = 'Update';
     button.class = 'calculate';
 
     document.getElementById('calculateContainer').prepend(button);
-    const scriptText = `document.getElementById('calculate').addEventListener('click', () => { ${jar.toString()}; document.getElementById('result').style.display = 'block'; });`;
+    const scriptText = `document.getElementById('calculate').addEventListener('click', () => { ${jar.toString()}; });`;
     const oldScript = document.getElementById('scriptContainer');
 
     if (oldScript) {
@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', e => {
   updateHandler();
   document.getElementById('updateCode').addEventListener('click', () => {
     updateHandler();
-    document.getElementById('calculate').addEventListener('click', window.runCode)
+    document.getElementById('calculate').addEventListener('click', window.runCode);
+    alert('Code updated!')
   });
 
   document.querySelectorAll('.solve').forEach((link) => {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', e => {
       const solutionCodeElement = document.getElementById(link.dataset.exerciseId);
       jar.updateCode(solutionCodeElement.innerText);
       updateHandler();
+      alert('Solved! Try the mixing station to see the changes in action.')
     })
   })
 });
